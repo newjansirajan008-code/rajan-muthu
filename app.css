@@ -1,0 +1,367 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* NAVBAR */
+
+header {
+  background: #182848;
+  color: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* HOME */
+
+.home {
+  min-height: 75vh;
+}
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #182848,
+    #4b6cb7
+  );
+  color: white;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.primary {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.primary:hover {
+  background: #3730a3;
+}
+
+.features {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature span {
+  font-size: 45px;
+}
+
+/* PAGE */
+
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 45px 20px;
+  min-height: 75vh;
+}
+
+.page h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* CANTEEN */
+
+.name-box {
+  max-width: 500px;
+  margin: auto auto 30px;
+}
+
+.name-box input {
+  width: 100%;
+}
+
+.canteen-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.food-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.food-icon {
+  font-size: 60px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.cart {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  height: fit-content;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item p {
+  margin: 5px 0;
+  color: #777;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity button {
+  border: none;
+  background: #e5e7eb;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.order-button {
+  width: 100%;
+  padding: 14px;
+  background: #16a34a;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.success {
+  margin-top: 15px;
+  background: #dcfce7;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* FORMS */
+
+.form-card {
+  max-width: 600px;
+  background: white;
+  padding: 35px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* INTERNSHIPS */
+
+.skill-box {
+  max-width: 700px;
+  background: white;
+  padding: 25px;
+  margin: auto auto 30px;
+  border-radius: 15px;
+}
+
+.skill-box label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.internship-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.skills {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.skills span {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.match {
+  margin-top: 20px;
+  background: #dcfce7;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.missing {
+  color: #dc2626;
+}
+
+/* FOOTER */
+
+footer {
+  background: #182848;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .canteen-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .internship-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+}

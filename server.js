@@ -7,15 +7,16 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// -----------------------------
-// CANTEEN MENU
-// -----------------------------
+// ===============================
+// SMART CANTEEN MENU
+// ===============================
 
 const menu = [
   {
     id: 1,
     name: "Biryani",
     price: 80,
+    category: "Main Food",
     emoji: "🍗",
     available: true
   },
@@ -23,6 +24,7 @@ const menu = [
     id: 2,
     name: "Fried Rice",
     price: 80,
+    category: "Main Food",
     emoji: "🍚",
     available: true
   },
@@ -30,6 +32,7 @@ const menu = [
     id: 3,
     name: "Porotta",
     price: 20,
+    category: "Main Food",
     emoji: "🫓",
     available: true
   },
@@ -37,6 +40,7 @@ const menu = [
     id: 4,
     name: "Puffs",
     price: 20,
+    category: "Snacks",
     emoji: "🥐",
     available: true
   },
@@ -44,10 +48,65 @@ const menu = [
     id: 5,
     name: "Drinks",
     price: 10,
+    category: "Drinks",
     emoji: "🥤",
+    available: true
+  },
+
+  // Variety Rice
+  {
+    id: 6,
+    name: "Lemon Rice",
+    price: 30,
+    category: "Variety Rice",
+    emoji: "🍋",
+    available: true
+  },
+  {
+    id: 7,
+    name: "Tomato Rice",
+    price: 30,
+    category: "Variety Rice",
+    emoji: "🍅",
+    available: true
+  },
+  {
+    id: 8,
+    name: "Curd Rice",
+    price: 25,
+    category: "Variety Rice",
+    emoji: "🥣",
+    available: true
+  },
+  {
+    id: 9,
+    name: "Coconut Rice",
+    price: 30,
+    category: "Variety Rice",
+    emoji: "🥥",
+    available: true
+  },
+  {
+    id: 10,
+    name: "Tamarind Rice",
+    price: 30,
+    category: "Variety Rice",
+    emoji: "🍚",
+    available: true
+  },
+  {
+    id: 11,
+    name: "Veg Rice",
+    price: 40,
+    category: "Variety Rice",
+    emoji: "🥗",
     available: true
   }
 ];
+
+// ===============================
+// ORDERS
+// ===============================
 
 let orders = [];
 
@@ -58,7 +117,19 @@ app.get("/api/menu", (req, res) => {
 
 // Place order
 app.post("/api/orders", (req, res) => {
-  const { items, total, studentName } = req.body;
+  const {
+    studentName,
+    phone,
+    items,
+    total,
+    orderType
+  } = req.body;
+
+  if (!studentName) {
+    return res.status(400).json({
+      message: "Student name is required"
+    });
+  }
 
   if (!items || items.length === 0) {
     return res.status(400).json({
@@ -68,42 +139,64 @@ app.post("/api/orders", (req, res) => {
 
   const order = {
     id: orders.length + 1,
-    token: `CAN-${1000 + orders.length + 1}`,
-    studentName: studentName || "Student",
+
+    // Example: SC-1001
+    token: `SC-${1000 + orders.length + 1}`,
+
+    studentName,
+    phone: phone || "",
     items,
     total,
+    orderType: orderType || "Take Away",
+
     status: "Pending",
+
     createdAt: new Date()
   };
 
   orders.push(order);
 
   res.status(201).json({
-    message: "Order placed successfully",
+    message: "Order placed successfully!",
     order
   });
 });
 
-// Get orders
+// Get all orders
 app.get("/api/orders", (req, res) => {
   res.json(orders);
 });
 
-// -----------------------------
-// CAMPUS COMPLAINTS
-// -----------------------------
+// Update order status
+app.put("/api/orders/:id", (req, res) => {
+  const order = orders.find(
+    (item) => item.id === Number(req.params.id)
+  );
+
+  if (!order) {
+    return res.status(404).json({
+      message: "Order not found"
+    });
+  }
+
+  order.status = req.body.status;
+
+  res.json({
+    message: "Order status updated",
+    order
+  });
+});
+
+// ===============================
+// CAMPUS COMPLAINT
+// ===============================
 
 let complaints = [];
 
 app.post("/api/complaints", (req, res) => {
-  const { title, description, location, studentName } = req.body;
-
   const complaint = {
     id: complaints.length + 1,
-    title,
-    description,
-    location,
-    studentName,
+    ...req.body,
     status: "Submitted",
     createdAt: new Date()
   };
@@ -120,9 +213,9 @@ app.get("/api/complaints", (req, res) => {
   res.json(complaints);
 });
 
-// -----------------------------
+// ===============================
 // LOST & FOUND
-// -----------------------------
+// ===============================
 
 let lostFound = [];
 
@@ -146,28 +239,43 @@ app.get("/api/lost-found", (req, res) => {
   res.json(lostFound);
 });
 
-// -----------------------------
+// ===============================
 // INTERNSHIPS
-// -----------------------------
+// ===============================
 
 const internships = [
   {
     id: 1,
     company: "Tech Solutions",
     role: "Web Developer Intern",
-    skills: ["React", "JavaScript", "HTML", "CSS"]
+    skills: [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
   },
+
   {
     id: 2,
     company: "Data Labs",
     role: "Data Analyst Intern",
-    skills: ["Python", "SQL", "Excel"]
+    skills: [
+      "Python",
+      "SQL",
+      "Excel"
+    ]
   },
+
   {
     id: 3,
     company: "AI Innovations",
     role: "AI Intern",
-    skills: ["Python", "Machine Learning", "SQL"]
+    skills: [
+      "Python",
+      "Machine Learning",
+      "SQL"
+    ]
   }
 ];
 
@@ -175,9 +283,9 @@ app.get("/api/internships", (req, res) => {
   res.json(internships);
 });
 
-// -----------------------------
+// ===============================
 // SERVER
-// -----------------------------
+// ===============================
 
 app.get("/", (req, res) => {
   res.json({
@@ -186,5 +294,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(
+    `Smart Campus Hub backend running on http://localhost:${PORT}`
+  );
 });

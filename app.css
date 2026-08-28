@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   background: #f5f7fb;
   color: #172033;
 }
@@ -20,15 +20,17 @@ button {
   cursor: pointer;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 header {
   background: #182848;
   color: white;
-  padding: 18px 6%;
+  padding: 18px 5%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 20px;
 }
 
@@ -39,27 +41,25 @@ header {
 
 nav {
   display: flex;
-  gap: 8px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 
 nav button {
   background: transparent;
-  border: none;
   color: white;
-  padding: 10px 12px;
-  border-radius: 8px;
+  border: none;
+
+  padding: 10px;
+
+  border-radius: 7px;
 }
 
 nav button:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #30446e;
 }
 
-/* HOME */
-
-.home {
-  min-height: 75vh;
-}
+/* ================= HOME ================= */
 
 .hero {
   background: linear-gradient(
@@ -67,14 +67,16 @@ nav button:hover {
     #182848,
     #4b6cb7
   );
+
   color: white;
+
   text-align: center;
+
   padding: 90px 20px;
 }
 
 .hero h1 {
   font-size: 52px;
-  margin-bottom: 15px;
 }
 
 .hero p {
@@ -84,10 +86,15 @@ nav button:hover {
 
 .primary {
   background: #4f46e5;
+
   color: white;
+
   border: none;
+
   padding: 12px 20px;
+
   border-radius: 8px;
+
   font-weight: bold;
 }
 
@@ -97,20 +104,34 @@ nav button:hover {
 
 .features {
   max-width: 1100px;
+
   margin: 50px auto;
-  padding: 0 20px;
+
+  padding: 20px;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
   gap: 20px;
 }
 
 .feature {
   background: white;
+
   padding: 30px;
+
   border-radius: 15px;
+
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.08);
+
   cursor: pointer;
+
   transition: 0.2s;
 }
 
@@ -122,228 +143,449 @@ nav button:hover {
   font-size: 45px;
 }
 
-/* PAGE */
+/* ================= PAGE ================= */
 
 .page {
   max-width: 1200px;
+
   margin: auto;
+
   padding: 45px 20px;
+
   min-height: 75vh;
 }
 
 .page h1 {
   text-align: center;
-  margin-bottom: 40px;
+
+  margin-bottom: 35px;
 }
 
-/* CANTEEN */
+/* ================= CUSTOMER ================= */
 
-.name-box {
-  max-width: 500px;
-  margin: auto auto 30px;
-}
-
-.name-box input {
-  width: 100%;
-}
-
-.canteen-layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-}
-
-.food-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.food-card {
+.customer-box {
   background: white;
+
   padding: 25px;
+
   border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-}
 
-.food-icon {
-  font-size: 60px;
-}
+  margin-bottom: 25px;
 
-.price {
-  font-size: 22px;
-  font-weight: bold;
-  color: #16a34a;
-}
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.07);
 
-.cart {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  height: fit-content;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-  position: sticky;
-  top: 20px;
-}
+  display: grid;
 
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-}
+  grid-template-columns:
+    repeat(3, 1fr);
 
-.cart-item p {
-  margin: 5px 0;
-  color: #777;
-}
-
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.quantity button {
-  border: none;
-  background: #e5e7eb;
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  font-size: 18px;
-}
-
-.order-button {
-  width: 100%;
-  padding: 14px;
-  background: #16a34a;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.success {
-  margin-top: 15px;
-  background: #dcfce7;
-  color: #166534;
-  padding: 12px;
-  border-radius: 8px;
-}
-
-/* FORMS */
-
-.form-card {
-  max-width: 600px;
-  background: white;
-  padding: 35px;
-  margin: auto;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
   gap: 15px;
+}
+
+.customer-box h2 {
+  grid-column: 1 / -1;
 }
 
 input,
 textarea,
 select {
   width: 100%;
+
   padding: 13px;
+
   border: 1px solid #d1d5db;
+
   border-radius: 8px;
+
   font-size: 15px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 30px;
+}
+
+.category {
+  border: none;
+
+  background: white;
+
+  padding: 10px 18px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(0, 0, 0, 0.08);
+}
+
+.category.active {
+  background: #4f46e5;
+
+  color: white;
+}
+
+/* ================= CANTEEN ================= */
+
+.canteen-layout {
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr;
+
+  gap: 30px;
+}
+
+.food-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.food-card {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.07);
+}
+
+.food-icon {
+  font-size: 55px;
+}
+
+.price {
+  color: #16a34a;
+
+  font-size: 23px;
+
+  font-weight: bold;
+}
+
+.category-text {
+  color: #777;
+
+  font-size: 13px;
+}
+
+/* ================= CART ================= */
+
+.cart {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  height: fit-content;
+
+  position: sticky;
+
+  top: 20px;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.08);
+}
+
+.cart-item {
+  padding: 12px 0;
+
+  border-bottom:
+    1px solid #eee;
+}
+
+.cart-item p {
+  color: #777;
+}
+
+.quantity {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.quantity button {
+  border: none;
+
+  background: #e5e7eb;
+
+  width: 30px;
+
+  height: 30px;
+
+  border-radius: 6px;
+}
+
+.quantity .delete {
+  background: #fee2e2;
+}
+
+.total {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  font-size: 22px;
+
+  margin: 20px 0;
+}
+
+.order-button {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 16px;
+}
+
+.order-button:hover {
+  background: #15803d;
+}
+
+.success {
+  margin-top: 15px;
+
+  background: #dcfce7;
+
+  color: #166534;
+
+  padding: 15px;
+
+  border-radius: 8px;
+}
+
+/* ================= FORMS ================= */
+
+.form-card {
+  max-width: 600px;
+
+  background: white;
+
+  padding: 35px;
+
+  margin: auto;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.08);
+}
+
+form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
 }
 
 textarea {
   min-height: 120px;
+
   resize: vertical;
 }
 
-/* INTERNSHIPS */
+/* ================= ORDERS ================= */
+
+.order-card {
+  background: white;
+
+  padding: 25px;
+
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.07);
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 120px 150px;
+
+  gap: 20px;
+
+  align-items: center;
+}
+
+.status {
+  background: #fef3c7;
+
+  color: #92400e;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.empty {
+  background: white;
+
+  padding: 50px;
+
+  text-align: center;
+
+  border-radius: 15px;
+}
+
+/* ================= INTERNSHIP ================= */
 
 .skill-box {
   max-width: 700px;
+
   background: white;
+
   padding: 25px;
-  margin: auto auto 30px;
+
+  margin:
+    0 auto 30px;
+
   border-radius: 15px;
 }
 
 .skill-box label {
   display: block;
+
   margin-bottom: 10px;
+
   font-weight: bold;
 }
 
 .internship-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 20px;
 }
 
 .internship-card {
   background: white;
+
   padding: 25px;
+
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.07);
 }
 
 .skills {
   display: flex;
-  gap: 7px;
+
   flex-wrap: wrap;
+
+  gap: 7px;
 }
 
 .skills span {
   background: #e0e7ff;
+
   color: #3730a3;
+
   padding: 6px 10px;
+
   border-radius: 20px;
+
   font-size: 13px;
 }
 
 .match {
   margin-top: 20px;
+
   background: #dcfce7;
+
   color: #166534;
+
   padding: 12px;
+
   border-radius: 8px;
+
   text-align: center;
+
   font-weight: bold;
+
   font-size: 20px;
 }
 
-.missing {
-  color: #dc2626;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer {
   background: #182848;
+
   color: white;
+
   text-align: center;
+
   padding: 25px;
 }
 
-/* RESPONSIVE */
+/* ================= MOBILE ================= */
 
 @media (max-width: 900px) {
+
   header {
     flex-direction: column;
   }
 
   .features {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .canteen-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .food-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .customer-box {
+    grid-template-columns: 1fr;
+  }
+
+  .order-card {
     grid-template-columns: 1fr;
   }
 
@@ -353,6 +595,7 @@ footer {
 }
 
 @media (max-width: 600px) {
+
   .hero h1 {
     font-size: 36px;
   }
@@ -363,5 +606,9 @@ footer {
 
   .food-grid {
     grid-template-columns: 1fr;
+  }
+
+  nav {
+    justify-content: center;
   }
 }

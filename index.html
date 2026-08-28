@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartBite | Smart College Canteen</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-icon">🍴</div>
+
+        <div>
+            <h2>Smart<span>Bite</span></h2>
+            <small>Campus Canteen</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#orders">My Orders</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button id="themeBtn" class="icon-btn">🌙</button>
+
+        <button id="cartBtn" class="cart-btn">
+            🛒
+            <span id="cartCount">0</span>
+        </button>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            Canteen Open • Live Queue
+        </div>
+
+        <h1>
+            Eat Smart.<br>
+            <span>Skip the Queue.</span>
+        </h1>
+
+        <p>
+            Order your favorite campus food before reaching the canteen.
+            Save time, track your token and enjoy a smarter campus dining
+            experience.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#menu" class="primary-btn">
+                Order Food →
+            </a>
+
+            <button class="secondary-btn" onclick="showQueue()">
+                ⚡ Check Queue
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="hero-card-top">
+            <span>⚡ Smart Queue</span>
+            <span class="status-online">LIVE</span>
+        </div>
+
+        <div class="queue-number">
+            <strong id="queueNumber">12</strong>
+            <span>orders ahead</span>
+        </div>
+
+        <div class="progress">
+            <div id="queueProgress"></div>
+        </div>
+
+        <p>
+            Estimated waiting time
+            <strong id="waitTime">8 mins</strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK STATS ================= -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+        <div class="stat-icon orange">🔥</div>
+        <div>
+            <strong>Today's Special</strong>
+            <p>Masala Dosa + Juice</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon green">⚡</div>
+        <div>
+            <strong>Average Wait</strong>
+            <p id="averageWait">8 minutes</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon blue">💰</div>
+        <div>
+            <strong>Your Savings</strong>
+            <p>₹<span id="savings">0</span> this month</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section id="menu" class="menu-section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">TODAY'S MENU</span>
+
+            <h2>What are you craving?</h2>
+
+            <p>
+                Fresh food. Student-friendly prices.
+                Zero unnecessary waiting.
+            </p>
+        </div>
+
+        <div class="search-box">
+            🔎
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search food..."
+            >
+        </div>
+
+    </div>
+
+
+    <!-- Categories -->
+
+    <div class="categories">
+
+        <button class="category active" data-category="all">
+            🍽️ All
+        </button>
+
+        <button class="category" data-category="breakfast">
+            🌅 Breakfast
+        </button>
+
+        <button class="category" data-category="lunch">
+            🍛 Lunch
+        </button>
+
+        <button class="category" data-category="snacks">
+            🍟 Snacks
+        </button>
+
+        <button class="category" data-category="drinks">
+            🥤 Drinks
+        </button>
+
+    </div>
+
+
+    <!-- Food Grid -->
+
+    <div id="foodGrid" class="food-grid"></div>
+
+</section>
+
+
+<!-- ================= BUDGET SECTION ================= -->
+
+<section class="budget-section">
+
+    <div class="budget-card">
+
+        <div>
+            <span class="section-label">STUDENT SMART BUDGET</span>
+
+            <h2>Keep your food spending under control 💸</h2>
+
+            <p>
+                Set your daily food budget and SmartBite will help
+                you find meals that fit your pocket.
+            </p>
+        </div>
+
+        <div class="budget-control">
+
+            <label>
+                Daily Budget: ₹
+                <span id="budgetValue">100</span>
+            </label>
+
+            <input
+                type="range"
+                id="budgetSlider"
+                min="50"
+                max="300"
+                value="100"
+            >
+
+            <button onclick="showBudgetMeals()" class="primary-btn">
+                Find Meals Under Budget
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDERS ================= -->
+
+<section id="orders" class="orders-section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">ORDER TRACKER</span>
+
+            <h2>Your Latest Order</h2>
+
+        </div>
+
+    </div>
+
+
+    <div id="orderContainer" class="order-container">
+
+        <div class="empty-order">
+            <div>🍱</div>
+
+            <h3>No active orders</h3>
+
+            <p>
+                Your current orders will appear here.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about-section">
+
+    <div class="about-content">
+
+        <span class="section-label">WHY SMARTBITE?</span>
+
+        <h2>A smarter canteen for a smarter campus.</h2>
+
+        <p>
+            SmartBite reduces canteen crowding by allowing students
+            to order digitally, receive a token and collect food when
+            their order is ready.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+            <span>🎟️</span>
+            <h3>Digital Token</h3>
+            <p>No standing in long queues.</p>
+        </div>
+
+        <div class="feature">
+            <span>📊</span>
+            <h3>Smart Analytics</h3>
+            <p>Understand peak hours and popular food.</p>
+        </div>
+
+        <div class="feature">
+            <span>🌱</span>
+            <h3>Less Food Waste</h3>
+            <p>Better demand prediction means less waste.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+        <h2>🍴 Smart<span>Bite</span></h2>
+        <p>Smart Campus • Smart Food • Smart Students</p>
+    </div>
+
+    <p>
+        © 2026 SmartBite College Project
+    </p>
+
+</footer>
+
+
+<!-- ================= CART SIDEBAR ================= -->
+
+<div id="overlay" class="overlay"></div>
+
+<aside id="cartPanel" class="cart-panel">
+
+    <div class="cart-header">
+
+        <h2>Your Cart 🛒</h2>
+
+        <button id="closeCart" class="close-btn">
+            ✕
+        </button>
+
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong>₹<span id="cartTotal">0</span></strong>
+        </div>
+
+        <button
+            id="checkoutBtn"
+            class="checkout-btn"
+        >
+            Place Smart Order ⚡
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast">
+    Added to cart!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
